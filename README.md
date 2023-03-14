@@ -5,3 +5,6 @@
 ### invoice-lottery  
  * [統一發票模擬器](https://github.com/ho-bill/rust-lesson/tree/main/invoice-lottery)
  * Taiwan Uniform invoice lottery simulator 內有中文註釋及輸出
+
+### Number Multiplicative persistence exercises
+* [Number Multiplicative persistence](https://github.com/ho-bill/rust-lesson/tree/main/multi-number)
