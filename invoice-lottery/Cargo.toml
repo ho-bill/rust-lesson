@@ -1,0 +1,10 @@
+[package]
+name = "invoice-lottery"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+lottery_chk = { path = "./lottery_chk" }
+rand = "0.8"
