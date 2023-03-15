@@ -8,3 +8,6 @@
 
 ### Number Multiplicative persistence exercises
 * [Number Multiplicative persistence](https://github.com/ho-bill/rust-lesson/tree/main/multi-number)
+
+## Collatz (3n+1) conjecture
+* [Collatz conjecture](https://github.com/ho-bill/rust-lesson/tree/main/collatz-test)
