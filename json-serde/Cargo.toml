@@ -1,0 +1,9 @@
+[package]
+name = "json_serde"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+netapi = { path = "./netapi" }
+online = { version = "4.0.0"}
