@@ -9,5 +9,8 @@
 ### Number Multiplicative persistence exercises
 * [Number Multiplicative persistence](https://github.com/ho-bill/rust-lesson/tree/main/multi-number)
 
-## Collatz (3n+1) conjecture
+### Collatz (3n+1) conjecture
 * [Collatz conjecture](https://github.com/ho-bill/rust-lesson/tree/main/collatz-test)
+
+### Serde JSON & Reqwest test with free API
+* [Serde JSON & Reqwest test with free API](https://github.com/ho-bill/rust-lesson/tree/main/json-serde)
