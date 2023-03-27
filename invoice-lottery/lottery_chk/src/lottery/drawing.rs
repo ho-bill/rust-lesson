@@ -1,8 +1,39 @@
 use crate::lottery::checker;
 
 //2023一月開獎的中獎號碼，2022/11~12 月的發票可兌獎
-pub struct Drawing2301 {}
+pub struct Drawing2303 {}
 
+impl Drawing2303 {
+    pub fn drawingresult() -> Vec<checker::WinningPair> {
+        let mut winning = vec![checker::WinningPair::new("06634385".to_string(), 10000000)];
+        winning.push(checker::WinningPair::new("66882140".to_string(), 2000000));
+
+        winning.push(checker::WinningPair::new("25722152".to_string(), 200000));
+        winning.push(checker::WinningPair::new("5722152".to_string(), 40000));
+        winning.push(checker::WinningPair::new("722152".to_string(), 10000));
+        winning.push(checker::WinningPair::new("22152".to_string(), 4000));
+        winning.push(checker::WinningPair::new("2152".to_string(), 1000));
+        winning.push(checker::WinningPair::new("152".to_string(), 200));
+
+        winning.push(checker::WinningPair::new("93412693".to_string(), 200000));
+        winning.push(checker::WinningPair::new("3412693".to_string(), 40000));
+        winning.push(checker::WinningPair::new("412693".to_string(), 10000));
+        winning.push(checker::WinningPair::new("12693".to_string(), 4000));
+        winning.push(checker::WinningPair::new("2693".to_string(), 1000));
+        winning.push(checker::WinningPair::new("693".to_string(), 200));
+
+        winning.push(checker::WinningPair::new("16957025".to_string(), 200000));
+        winning.push(checker::WinningPair::new("6957025".to_string(), 40000));
+        winning.push(checker::WinningPair::new("957025".to_string(), 10000));
+        winning.push(checker::WinningPair::new("57025".to_string(), 4000));
+        winning.push(checker::WinningPair::new("7025".to_string(), 1000));
+        winning.push(checker::WinningPair::new("025".to_string(), 200));
+
+        winning
+    }
+}
+
+pub struct Drawing2301 {}
 impl Drawing2301 {
     pub fn drawingresult() -> Vec<checker::WinningPair> {
         let mut winning = vec![checker::WinningPair::new("28089459".to_string(), 10000000)];

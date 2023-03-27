@@ -12,7 +12,7 @@ use std::time::Duration;
 use std::sync::mpsc;
 use std::sync::mpsc::{ Sender, Receiver };
 const MAX_NUMBER: u32 = 99999999;
-const INT_NUM: u32 = 10000000;
+const INT_NUM: u32 = 93410000;
 const USER_NUM: u32 = 100;
 const TICKETS_NUM: u32 = 100;
 const NTHREADS: u32 = 2;
@@ -58,11 +58,12 @@ fn checking_invoce(tx: Sender<String>, waiting: Arc<Barrier>, th_id: usize) {
     let mut count: u32 = 1;
     let mut lucky_inv_map = HashMap::new();
     let mut luckyone = HashSet::new();
-    let mut prize: u32;
+    let mut one_prize: u32;
+    let mut one_wins_ticket: u32;
     let mut max_prize: u32 = 0;
     let mut all_prize: u32 = 0;
     println!(
-        "執行緒{} : 由{} 開始對發票，共{}人，每人{}張，開始 ",
+        "執行緒#{} : 由{} 開始對發票，共{}人，每人{}張，開始 ",
         th_id,
         int_num,
         user_num,
@@ -70,13 +71,15 @@ fn checking_invoce(tx: Sender<String>, waiting: Arc<Barrier>, th_id: usize) {
     );
     for i in 1..user_num + 1 {
         //println!("user:{:03} checking..",i);
+        one_prize = 0;
+        one_wins_ticket = 0;
         for _j in 1..ticket_num + 1 {
-            for winning in drawing::Drawing2301::drawingresult().iter() {
-                prize = checker::check_winning(&winning, int_num + count);
+            for winning in drawing::Drawing2303::drawingresult().iter() {
+                let prize = checker::check_winning(&winning, int_num + count);
                 if prize > 0 {
                     let show_prize = || {
                         println!(
-                            "Lucky user,{:03}#{}, Voice num, {:08}, win, {}",
+                            "Lucky user,{:03}, thread#{}, Voice num, {:08}, win, {}",
                             i,
                             th_id,
                             int_num + count,
@@ -85,9 +88,10 @@ fn checking_invoce(tx: Sender<String>, waiting: Arc<Barrier>, th_id: usize) {
                     };
                     show_prize();
                     luckyone.insert(i);
-                    all_prize = all_prize + prize;
+                    one_prize = one_prize + prize;
                     let vcount = lucky_inv_map.entry(prize).or_insert(0);
                     *vcount += 1;
+                    one_wins_ticket += 1;
                     if max_prize < prize {
                         max_prize = prize;
                     }
@@ -98,6 +102,10 @@ fn checking_invoce(tx: Sender<String>, waiting: Arc<Barrier>, th_id: usize) {
             if int_num + count > MAX_NUMBER {
                 int_num = 1;
             }
+        }
+        all_prize = all_prize + one_prize;
+        if one_wins_ticket > 1 {
+            println!("* Very lucky user{:03} thread#{} wins, {}",i,th_id, one_prize);
         }
     }
     waiting.wait();
