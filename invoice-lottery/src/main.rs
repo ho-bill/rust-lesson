@@ -74,7 +74,7 @@ fn checking_invoce(tx: Sender<String>, waiting: Arc<Barrier>, th_id: usize) {
         one_prize = 0;
         one_wins_ticket = 0;
         for _j in 1..ticket_num + 1 {
-            for winning in drawing::Drawing2303::drawingresult().iter() {
+            for winning in drawing::Drawing2305::drawingresult().iter() {
                 let prize = checker::check_winning(&winning, int_num + count);
                 if prize > 0 {
                     let show_prize = || {
